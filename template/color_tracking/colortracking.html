@@ -1,0 +1,451 @@
+{%extends "base/main.html"%}
+{% block stylesheets %}
+
+<!-- using online links -->
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+           integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+<link href="/static/assets/color_tracking.css" rel="stylesheet">
+
+<!-- MDBootstrap Datatables  -->
+<link href="/static/assets/datatables/datatables.min.css" rel="stylesheet">
+<script type="text/javascript" src="/static/assets/datatables/datatables.min.js"></script>
+
+<!-- <link href="https://cdn.datatables.net/scroller/2.0.1/css/scroller.dataTables.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.datatables.net/scroller/2.0.1/js/dataTables.scroller.js"></script>
+
+    <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+ -->
+
+
+    <!-- <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+<script src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script> -->
+
+{% endblock stylesheets %}
+
+{%block content%}
+{% load l10n %}
+<h1 style="text-allign:center">COLOUR FRAME PROCESSING STATUS</h1>
+<div class="row">
+
+<div class="col-xl-6 col-lg-6 col-12">
+  <!-- <div class="advanced-search-body" style="padding-top: 0px !important;">
+									<form id = "joiningDateSearch">
+										<div class="form-row">
+											<div class="form-group col-md-6" style="margin-bottom: 0px !important;">
+												<label for="Doctor-name">From</label>
+												<input type="date" id="min"
+													class="form-control" >
+											</div>
+											<div class="form-group col-md-6" style="margin-bottom: 0px !important;">
+												<label for="dob">To</label>
+												<input type="date" id="max"
+													class="form-control" >
+											</div>
+										</div>
+            <button class="btn btn-primary" id="btnGo" type="button">Go</button>
+									</form>
+
+								</div> -->
+    <table id="dtBasicExample" class="table table-striped table-bordered table-sm rwd-table" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th hidden class='checkbox-control'></th>
+          <th>Order#</th>
+          <th>Start Cutting</th>
+          <th>Weld/Clean</th>
+          <th>Shipped</th>
+          <th>PNT Received</th>
+          <th>VP Received</th>
+          <th>Status</th>
+          <th>List Date</th>
+
+
+
+        </tr>
+      </thead>
+
+      {% for data in list_of_Gantt_Data %}
+
+        <tr>
+          <td hidden class="checkbox-control"></td>
+
+<!-- list_of_Gantt_Data.append([order_number,start_cutting_date,sum_weld_clean, sum_shipped, sum_pnt_shop_received, sum_vp_received,list_date,count_of_order]) -->
+{% if  data.10 == "green" %}
+<td>
+<div class="justify-content-center badge badge-success align-self-center">
+  {{data.0}}
+</div>
+    </td>
+
+
+      {% elif data.10 == "yellow" %}
+
+      <td>
+        <div class="align-middle align-items-center justify-content-center badge badge-warning">
+  {{data.0}}
+        </div>
+        </td>
+      {% else %}
+      <td>
+
+      <div class="align-middle align-items-center justify-content-center badge badge-danger">
+        {{data.0}}
+      </div>
+        </td>
+
+      {% endif %}
+
+          <td><p>{{data.1}}</p>
+{% if data.10 == "green" %}
+            <div class="badge badge-success">
+          {{data.9}}
+          </div>
+          {% elif data.10 == "yellow" %}
+          <div class ="badge badge-warning">
+          {{data.9}}
+          </div>
+                {% else %}
+                <div class="badge badge-danger">
+              {{data.9}}
+              </div>
+        {% endif %}
+        </td>
+          <td ><p>{{data.2}}/{{data.7}}</p>
+            {% if data.12 == "green" %}
+                        <div class="badge badge-success">
+                      {{data.11}}
+                      </div>
+                      {% elif data.12 == "yellow" %}
+                      <div class ="badge badge-warning">
+                    {{data.11}}
+                    </div>
+                    {% else %}
+                    <div class="badge badge-danger">
+                  {{data.11}}
+                  </div>
+
+                    {% endif %}
+
+          </td>
+          <td> <p>{{data.3}}/{{data.7}}</p>
+
+            {% if data.14 == "green" %}
+                        <div class="badge badge-success">
+                      {{data.13}}
+                      </div>
+                      {% elif data.14 == "yellow" %}
+                      <div class ="badge badge-warning">
+                    {{data.13}}
+                    </div>
+                    {% else %}
+                    <div class="badge badge-danger">
+                  {{data.13}}
+                  </div>
+                    {% endif %}
+          </td>
+          <td> <p>{{data.4}}/{{data.7}}</p>
+            {% if data.16 == "green" %}
+                        <div class="badge badge-success">
+                      {{data.15}}
+                      </div>
+                      {% elif data.16 == "yellow" %}
+                      <div class ="badge badge-warning">
+                    {{data.15}}
+                    </div>
+                    {% else %}
+                    <div class="badge badge-danger">
+                  {{data.15}}
+                  </div>
+
+                    {% endif %}
+
+           </td>
+          <td><p>{{data.5}}/{{data.7}}</p>
+            {% if data.18 == "green" %}
+                        <div class="badge badge-success">
+                      {{data.17}}
+                      </div>
+                      {% elif data.18 == "yellow" %}
+                      <div class ="badge badge-warning">
+                    {{data.17}}
+                    </div>
+                    {% else %}
+                    <div class="badge badge-danger">
+                  {{data.17}}
+                  </div>
+
+                    {% endif %}
+
+           </td>
+
+          {% if data.8 == 1 %}
+
+          <td>
+            <div class="align-items-center justify-content-center badge badge-success">
+              Complete
+            </div>
+           </td>
+          {% else %}
+
+          <td>
+            <div class="align-items-center justify-content-center badge badge-danger">
+              Incomplete
+            </div>
+            </td>
+
+          {% endif %}
+          <td>{{data.6|date:'Y-m-d'}}</td>
+
+            </tr>
+
+{% endfor %}
+
+  </table>
+</div>
+<div class="col-md-3 col-12" id="contenitore">
+<div class="left">
+
+<table>
+<caption>Date table</caption>
+<tbody>
+<tr><td>White({{barchart_data.0}})</td><td>{{barchart_data.3}}%</td><td style="background-color:#324ab2">&nbsp;</td></tr>
+<tr><td>Color({{barchart_data.1}})</td><td>{{barchart_data.4}}%</td><td style="background-color:#0000FF">&nbsp;</td></tr>
+<tr><td>Color in and out({{barchart_data.2}})</td><td>{{barchart_data.5}}%</td><td style="background-color:#b2beb5">&nbsp;</td></tr>
+</tbody></table>
+<!-- <div class="button" onclick="viewGraph()">Rerun</div> -->
+</div>
+<div class="left">
+<div id="grafico">
+<div class="riga" style="top:25%"><div>70%</div></div>
+<div class="riga" style="top:50%"><div>50%</div></div>
+<div class="riga" style="top:75%"><div>25%</div></div>
+<div id="col0" style="left:0; background-color:#324ab2;" class="column"></div>
+<div id="col1" style="left:25%; background-color:#0000FF;" class="column"></div>
+<div id="col2" style="left:50%; background-color:#b2beb5;" class="column"></div>
+<div id="col3" style="left:75%; background-color:#DCEFEE;" class="column"></div>
+</div>
+</div>
+<div class="canc"></div>
+</div>
+<div class="wrapper col-md-3 col-12">
+    <div class="pie-charts">
+        <div class="pieID--micro-skills pie-chart--wrapper">
+            <h2>white & colour frame</h2>
+            <div class="pie-chart">
+                <div class="pie-chart__pie"></div>
+                <ul class="pie-chart__legend">
+                    <li><em>White  {{piechart_data.2|floatformat:"0"}}%</em><span>{{piechart_data.0|unlocalize}}</span></li>
+                    <li><em>Color  {{piechart_data.3|floatformat:"0"}}%</em><span>{{piechart_data.1|unlocalize}}</span></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<!-- progress bar -->
+
+<div class="chart-wrap col-md-6 col-12">
+  <div id="dashboard-stats" class="chart bars-horizontal brand-primary">
+{% for lists in Progress_list_of_all %}
+    <div class="row">
+      <span class="label">{{lists.0}}<p>[#WHT:{{lists.1}}, #colors:{{lists.2}}]</p></span>
+      <div class="bar-wrap">
+        <div class="bar blue" data-value="{{lists.3}}"></div>
+      </div>
+      <span class="number">{{lists.3|floatformat:"0"}}%</span>
+    </div>
+    {% endfor %}
+
+    </div>
+  </div>
+  </div>
+{%endblock%}
+{% block javascripts %}
+<script type="text/javascript" src="/static/assets/js/jquery-3.5.1.min.js"></script>
+
+<script type="text/javascript" src="/static/assets/js/color_tracking.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+<!-- ----- dataTables---------- -->
+<script type="text/javascript">
+  $(document).ready(function () {
+      $('#dtBasicExample').DataTable({
+        "pagingType": "full_numbers", // "simple" option for 'Previous' and 'Next' buttons only
+        "order": []
+      });
+      $('.dataTables_length').addClass('bs-select');
+    });
+
+  // $(document).ready(function () {
+  //
+  //     $('#dtBasicExample').DataTable({
+  //       "pagingType": "full_numbers",
+  //       "order": [],
+  // "drawCallback": function( settings ) {
+  //         console.log("DataTables has redrawn the table");
+  //     var selected = this.api().rows({page: 'current', selected: true}).count();
+  //     var all = this.api().rows({page: 'current'}).count();
+  //
+  //     if (selected > 0 && selected === all) {
+  //      $('#dtBasicExample thead tr').addClass('checked');
+  //     }
+  //     else {
+  //      $('#dtBasicExample thead tr').removeClass('checked');
+  //     }
+  //
+  //     },
+  //        columnDefs: [
+  //          {
+  //            targets: [8],
+  //            type: 'date'
+  //          }
+  //         ],
+  //
+  //
+  //
+  //     });
+  // $('.dataTables_length').addClass('bs-select');
+  //
+  // });
+  // $('#dtBasicExample').on('click','td.checkbox-control', function () {
+  //     $(this).parent().toggleClass('checked');
+  //   });
+  //
+  //
+  //
+  //
+  //   $('#dtBasicExample').on('click','th.checkbox-control', function () {
+  //
+  //     $(this).parent().toggleClass('checked');
+  //
+  //     if ($(this).parent().is( ".checked" )) {
+  //         table.rows( {page: 'current'} ).select();
+  //     } else {
+  //         table.rows( {page: 'current'} ).deselect();
+  //     }
+  //
+  //     table.rows({selected:true}).every(function() {
+  //       $(this.node()).addClass('checked');
+  //     });
+  //
+  //  table.rows({selected:false}).every(function() {
+  //       $(this.node()).removeClass('checked');
+  //     });
+  //
+  //   });
+  //
+  //
+  //     $.fn.dataTable.ext.search.push(
+  //     function (settings, data, dataIndex) {
+  //
+  //
+  //         var valid = true;
+  //         var min = moment($("#min").val());
+  //         if (!min.isValid()) { min = null; }
+  //       console.log(min);
+  //
+  //         var max = moment($("#max").val());
+  //         if (!max.isValid()) { max = null; }
+  //
+  //         if (min === null && max === null) {
+  //             // no filter applied or no date columns
+  //             valid = true;
+  //         }
+  //         else {
+  //
+  //             $.each(settings.aoColumns, function (i, col) {
+  //
+  //                 if (col.type == "date") {
+  //                     var cDate = moment(data[i],'YYYY/MM/DD');
+  //                   console.log(cDate);
+  //
+  //                     if (cDate.isValid()) {
+  //                         if (max !== null && max.isBefore(cDate)) {
+  //                             valid = false;
+  //                         }
+  //                         if (min !== null && cDate.isBefore(min)) {
+  //                             valid = false;
+  //                         }
+  //                     }
+  //                     else {
+  //                         valid = false;
+  //                     }
+  //                 }
+  //             });
+  //         }
+  //         return valid;
+  // });
+  //
+  //
+  //  $("#btnGo").click(function () {
+  //         $('#dtBasicExample').DataTable().draw();
+  //     });
+</script>
+
+
+<!-- -------BAR CHART ------- -->
+
+<script type="text/javascript">
+
+  function viewGraph(){
+  $('.column').css('height','0');
+  $('#contenitore tr').each(function(index) {
+  var ha = $(this).children('td').eq(1).text();
+  $('#col'+index).animate({height: ha}, 1500).html("<div>"+ha+"</div>");
+  });
+  }
+  $(document).ready(function(){
+  viewGraph();
+  });
+
+</script>
+
+<!-- ------------progress bar --------- -->
+<script type="text/javascript">
+  (function($) {
+  function generateBarGraph(wrapper) {
+    // Set Up Values Array
+    var values = [];
+
+    // Get Values and save to Array
+    $(wrapper + ' .bar').each(function(index, el) {
+      values.push($(this).data('value'));
+    });
+
+    // Get Max Value From Array
+    var max_value = Math.max.apply(Math, values);
+
+    // Set width of bar to percent of max value
+    $(wrapper + ' .bar').each(function(index, el) {
+      var bar = $(this),
+          value = bar.data('value'),
+          percent = Math.ceil((value / max_value) * 100);
+
+      // Set Width & Add Class
+      bar.width(percent + '%');
+      bar.addClass('in');
+    });
+  }
+
+  // Generate the bar graph on window load...
+  $(window).on('load', function(event) {
+    generateBarGraph('#dashboard-stats');
+  });
+})(jQuery); // Fully reference jQuery after this point.
+</script>
+
+{% endblock javascripts %}

@@ -1,0 +1,9 @@
+action: GLOB, msg: packaging
+cwd: J:\git\freelancer\senaka
+cmd: 'c:\users\ali\env37\scripts\python.exe' setup.py sdist --formats=zip --dist-dir 'J:\git\freelancer\senaka\.tox\dist'
+Traceback (most recent call last):
+  File "setup.py", line 24, in <module>
+    version = get_version("django_private_chat", "__init__.py")
+  File "setup.py", line 16, in get_version
+    version_file = open(filename).read()
+FileNotFoundError: [Errno 2] No such file or directory: 'django_private_chat\\__init__.py'

@@ -1,0 +1,56 @@
+{%extends "base/main.html"%}
+{% block title %}Part Price{% endblock %}
+{%block content%}
+ <div class="col-12 mt-5">
+     <div class="card">
+     {%if "Part Price" in user_groups %}
+         <div class="card-body">
+             <h4 class="header-title" >Part Price</h4>
+             <div class="single-table">
+                 <div class="table-responsive">
+                     <table class="table table-hover progress-table text-center">
+                         <thead class="text-uppercase">
+                             <tr>
+                                 <th scope="col">Multipoint Lock</th>
+                                 <th scope="col">Folding Handle</th>
+                                 <th scope="col">Casement over Max Width</th>
+                                 <th scope="col">SU Shape Charge</th>
+                                 <th scope="col">Multipoint Lock Option 2</th>
+                                 <th scope="col">Multipoint Lock Option 3</th>
+                                 <th scope="col">Single Hung Shape Charge</th>
+                                 <th scope="col">Bay Coupler Charge</th>
+                                 <th scope="col">Extra Brickmould Bay Charge</th>
+                                 <th scope="col">Extra Jamb Ext Bay Charge</th>
+                                 <th scope="col">plywood Int Finish Bay Charge</th>
+                                 <th scope="col">Inches to Subt from HT if plywood Int Finish</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                         {%for item in list_part_price %}
+                             <tr>
+                                 <td>{{item.multipoint_lock}}</td>
+                                 <td>{{item.folding_handle}}</td>
+                                 <td>{{item.casement_over_max_width}}</td>
+                                 <td>{{item.su_shape_charge}}</td>
+                                 <td>{{item.multipoint_lock_option_2}}</td>
+                                 <td>{{item.multipoint_lock_option_3}}</td>
+                                 <td>{{item.single_hung_shape_charge}}</td>
+                                 <td>{{item.bay_coupler_charge}}</td>
+                                 <td>{{item.extra_brickmould_bay_charge}}</td>
+                                 <td>{{item.extra_jamb_ext_bay_charge}}</td>
+                                 <td>{{item.plywood_int_finish_bay_charge}}</td>
+                                 <td>{{item.inches_to_subt_from_ht_if_plywood_int_finish}}</td>
+                             </tr>
+                          {%endfor%}  
+                         </tbody>
+                     </table>
+                 </div>
+             </div>
+         </div>
+       {%else%}
+       <h3 class="btn btn-danger">You don't have permission to see this page</h3>
+       {%endif%}
+     </div>
+ </div>
+
+{%endblock%}

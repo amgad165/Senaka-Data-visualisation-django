@@ -1,0 +1,44 @@
+{%extends "base/main.html"%}
+{% block title %}{{name}}{% endblock %}
+{%block content%}
+ <div class="col-12 mt-5">
+     <div class="card">
+     {%if "Miscellaneous" in user_groups %}
+         <div class="card-body">
+             <h4 class="header-title" >{{name}}</h4>
+             <div class="single-table">
+                 <div class="table-responsive">
+                     <table class="table table-hover progress-table text-center">
+                         <thead class="text-uppercase">
+                             <tr>
+                                 <th scope="col">MISC #</th>
+                                 <th style="text-align: left" scope="col">Description</th>
+                                 <th scope="col">Price</th>
+                                 <th scope="col">U/M</th>
+                                 <th scope="col">Discounttable</th>
+                                 <th scope="col">Code</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                         {%for item in list_miscellaneous %}
+                             <tr>
+                                 <th scope="row">{{item.miscellaneous_id}}</th>
+                                 <td style="text-align: left">{{item.description}}</td>
+                                 <td>{{item.price}}</td>
+                                 <td>{{item.um}}</td>
+                                 <td>{{item.discounttable}}</td>
+                                 <td>{{item.code}}</td>
+                             </tr>
+                          {%endfor%}  
+                         </tbody>
+                     </table>
+                 </div>
+             </div>
+         </div>
+         {%else%}
+       <h3 class="btn btn-danger">You don't have permission to see this page</h3>
+       {%endif%}
+     </div>
+ </div>
+
+{%endblock%}

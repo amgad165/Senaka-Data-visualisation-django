@@ -1,0 +1,62 @@
+{%extends "base/main.html"%}
+{% block title %}Window Type{% endblock %}
+{%block content%}
+ <div class="col-12 mt-5">
+     <div class="card">
+     {%if "Window Type" in user_groups %}
+         <div class="card-body">
+             <h4 class="header-title" >Window Type</h4>
+             <div class="single-table">
+                 <div class="table-responsive">
+                     <table class="table table-hover progress-table text-center">
+                         <thead class="text-uppercase">
+                             <tr>
+                                 <th scope="col">Window Type</th>
+                                 <th scope="col">Description</th>
+                                 <th scope="col">Folding Handle (Y/N/O)</th>
+                                 <th scope="col">Multipt Lock</th>
+                                 <th scope="col">Group Code (1-20)</th>
+                                 <th scope="col">Style Code</th>
+                                 <th scope="col">Price Code</th>
+                                 <th scope="col">OT of Sealed Unit</th>
+                                 <th scope="col">Output to Urban Y/N</th>
+                                 <th scope="col">Inactive Y/N</th>
+                                 <th scope="col">Inside Stain Price</th>
+                                 <th scope="col">Outside Stain Price</th>
+                                 <th scope="col">Inside Stain Price Over 14SF</th>
+                                 <th scope="col">Outside Stain Price Over 14SF</th>
+                                 <th scope="col">Extra Price,Triple or Over 10SF</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                         {%for item in list_window_type %}
+                             <tr>
+                                 <td>{{item.name}}</td>
+                                 <td>{{item.description}}</td>
+                                 <td>{{item.folding_handle}}</td>
+                                 <td>{{item.multipt_lock}}</td>
+                                 <td>{{item.group_code}}</td>
+                                 <td>{{item.style_code}}</td>
+                                 <td>{{item.price_code}}</td>
+                                 <td>{{item.sealed_unit}}</td>
+                                 <td>{{item.output_urban}}</td>
+                                 <td>{{item.inactive}}</td>
+                                 <td>{{item.inside_stain_price}}</td>
+                                 <td>{{item.outside_stain_price}}</td>
+                                 <td>{{item.inside_stain_price_over}}</td>
+                                 <td>{{item.outside_stain_price_over}}</td>
+                                 <td>{{item.extra_price}}</td>
+                             </tr>
+                          {%endfor%}
+                         </tbody>
+                     </table>
+                 </div>
+             </div>
+         </div>
+       {%else%}
+       <h3 class="btn btn-danger">You don't have permission to see this page</h3>
+       {%endif%}
+     </div>
+ </div>
+
+{%endblock%}

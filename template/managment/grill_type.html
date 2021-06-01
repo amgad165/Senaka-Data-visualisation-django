@@ -1,0 +1,52 @@
+{%extends "base/main.html"%}
+{% block title %}Grill Type{% endblock %}
+{%block content%}
+ <div class="col-12 mt-5">
+     <div class="card">
+     {%if "Grill Type" in user_groups %}
+         <div class="card-body">
+             <h4 class="header-title" >Grill Type</h4>
+             <div class="single-table">
+                 <div class="table-responsive">
+                     <table class="table table-hover progress-table text-center">
+                         <thead class="text-uppercase">
+                             <tr>
+                                 <th scope="col">NO</th>
+                                 <th style="text-align: left" scope="col">Description</th>
+                                 <th scope="col">Type</th>
+                                 <th scope="col">Colour</th>
+                                 <th scope="col">Matrial</th>
+                                 <th scope="col">SQ/F</th>
+                                 <th scope="col">Price</th>
+                                 <th scope="col">Start Price</th>
+                                 <th scope="col">Min</th>
+                                 <th scope="col">Cost</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                         {%for item in list_grill_type %}
+                             <tr>
+                                 <th scope="row">{{item.grill_type_id}}</th>
+                                 <td style="text-align: left">{{item.description}}</td>
+                                 <td>{{item.type}}</td>
+                                 <td>{{item.colour}}</td>
+                                 <td>{{item.matrial}}</td>
+                                 <td>{{item.sqf}}</td>
+                                 <td>{{item.price}}</td>
+                                 <td>{{item.start_price}}</td>
+                                 <td>{{item.min}}</td>
+                                 <td>{{item.cost}}</td>
+                             </tr>
+                          {%endfor%}  
+                         </tbody>
+                     </table>
+                 </div>
+             </div>
+         </div>
+         {%else%}
+       <h3 class="btn btn-danger">You don't have permission to see this page</h3>
+       {%endif%}
+     </div>
+ </div>
+
+{%endblock%}

@@ -1,0 +1,52 @@
+{%extends "base/main.html"%}
+{% block title %}Color Price{% endblock %}
+{%block content%}
+ <div class="col-12 mt-5">
+     <div class="card">
+     {%if "Color Price" in user_groups %}
+         <div class="card-body">
+             <h4 class="header-title" >Color Price</h4>
+             <div class="single-table">
+                 <div class="table-responsive">
+                     <table class="table table-hover progress-table text-center">
+                         <thead class="text-uppercase">
+                             <tr>
+                                 <th scope="col">Window Type</th>
+                                 <th scope="col">Price Code</th>
+                                 <th scope="col">SQ FT</th>
+                                 <th scope="col">White SWD</th>
+                                 <th scope="col">Cream -1</th>
+                                 <th scope="col">Cream -2</th>
+                                 <th scope="col">Brown</th>
+                                 <th scope="col">SWD</th>
+                                 <th scope="col">Pebble</th>
+                                 <th scope="col">C.Brown</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                         {%for item in list_color_price %}
+                             <tr>
+                                 <td>{{item.window_type}}</td>
+                                 <td>{{item.price_code}}</td>
+                                 <td>{{item.sq_ft}}</td>
+                                 <td>{{item.white_swd}}</td>
+                                 <td>{{item.cream_1}}</td>
+                                 <td>{{item.cream_2}}</td>
+                                 <td>{{item.brown}}</td>
+                                 <td>{{item.swd}}</td>
+                                 <td>{{item.pebble}}</td>
+                                 <td>{{item.c_brown}}</td>
+                             </tr>
+                          {%endfor%}  
+                         </tbody>
+                     </table>
+                 </div>
+             </div>
+         </div>
+       {%else%}
+       <h3 class="btn btn-danger">You don't have permission to see this page</h3>
+       {%endif%}
+     </div>
+ </div>
+
+{%endblock%}

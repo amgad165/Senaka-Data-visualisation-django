@@ -1,0 +1,114 @@
+{%extends "base/main.html"%}
+{%block content%}
+<div class="col-12">
+    <div class="card mt-5">
+        <div class="card-body">
+            <h4 class="header-title">Create User</h4>
+            <div class="alert-items">
+                {%if alert_success %}
+                 <div class="alert alert-success" role="alert">
+                     <strong>{{alert_success}}</strong>
+                 </div>
+                 {%endif%}
+                 {%if alert_danger %}
+                 <div class="alert alert-danger" role="alert">
+                     <strong>{{alert_danger}}</strong> 
+                 </div>
+                 {%endif%}
+             </div>
+            <form class="needs-validation" method="POST" action="" >
+            {% csrf_token %}
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <label for="validationCustom01">First name</label>
+                        <input type="text" class="form-control" id="validationCustom01" name="first_name" value="" required="">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="validationCustom02">Last name</label>
+                        <input type="text" class="form-control" id="validationCustom02" name="last_name"  value="" required="">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="validationCustomEmail">Email</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend">@</span>
+                            </div>
+                            <input type="text" class="form-control" name="email" id="validationCustomEmail"  aria-describedby="inputGroupPrepend" required="">
+                            <div class="invalid-feedback">
+                                Please choose a Email.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <label for="validationCustom03">Username</label>
+                        <input type="text" class="form-control" id="validationCustom03" name="username"  value="" required="">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="exampleInputPassword1">Password</label>
+                        <div class="input-group">
+                        	<input type="text" class="form-control" id="exampleInputPassword1" name="password1"  value="" required="">
+	                        <div class="valid-feedback">
+	                            Looks good!
+	                        </div>
+	                    </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="exampleInputPassword2">Confirm Password</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="exampleInputPassword2" name="password2"   required="">
+                            <div class="invalid-feedback">
+                                Please choose a Email.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="form-row">
+                    
+                    <div class="col-md-4 mb-3">
+                        <label for="validationCustom04">Phone Number</label>
+                        <div class="input-group">
+                        	<div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend">+</span>
+                            </div>
+                        	<input type="text" class="form-control" id="validationCustom04" name="phone_number"  value="" required="">
+	                        <div class="valid-feedback">
+	                            Looks good!
+	                        </div>
+	                    </div>
+                    </div>
+                    <div class="text-muted mb-3 mt-4 d-block">
+                    	<label for="validationCustom05">Groups:</label>
+                    	<br>
+                    	{%for group in groups%}
+                         <div class="custom-control custom-checkbox custom-control-inline">
+                             <input type="checkbox" name="groups" value="{{group.id}}" class="custom-control-input" id="{{group.id}}">
+                             <label class="custom-control-label" for="{{group.id}}">{{group.name}}</label>
+                         </div>
+                         {%endfor%}
+                        
+               		</div>
+               </div>
+               <br>
+                <button class="btn btn-primary" type="submit">Submit form</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+{%endblock%}

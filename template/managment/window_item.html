@@ -1,0 +1,93 @@
+{%extends "base/main.html"%}
+{% block title %}Window Item{% endblock %}
+{%block content%}
+ <div class="col-12 mt-5">
+     <div class="card">
+     {%if "Window Item" in user_groups %}
+         <div class="card-body">
+             <h4 class="header-title" >Window Item</h4>
+             <div class="single-table">
+                 <div class="table-responsive">
+                     <table class="table table-hover progress-table text-center">
+                         <thead class="text-uppercase">
+                             <tr>
+                                 <th scope="col">ITEM NUMBER</th>
+                                 <th scope="col">ITEM DSCRIPTION</th>
+                                 <th scope="col">LABEL MULTIPLIER</th>
+                                 <th scope="col">ITEM TYPE</th>
+                                 <th scope="col">GROUP NUMBER</th>
+                                 <th scope="col">INSIDE_COLOR</th>
+                                 <th scope="col">PAINTED PRICE: OUTSIDE</th>
+                                 <th scope="col">PAINTED PRICE: INSIDE</th>
+                                 <th scope="col">STAIN PRICE: OUTSIDE</th>
+                                 <th scope="col">STAIN PRICE: INSIDE</th>
+                                 <th scope="col">URBAN OUTPUT</th>
+                                 <th scope="col">URBAN MATERIAL</th>
+                                 <th scope="col">URBAM MODEL</th>
+                                 <th scope="col">URBAN PART</th>
+                                 <th scope="col">URBAN CODE DIGIT</th>
+                                 <th scope="col"># OF BINS</th>
+                                 <th scope="col">URBAN CSV FILE NAME</th>
+                                 <th scope="col">WIDTH LABEL (0 OR 1)</th>
+                                 <th scope="col">HT LABEL (0 OR 1)</th>
+                                 <th scope="col">ITEM SIZE FOR BARCODE</th>
+                                 <th scope="col">TIGER STOP OUTPUT</th>
+                                 <th scope="col">TIGER STOP MATERIAL</th>
+                                 <th scope="col">TIGER STOP MODEL</th>
+                                 <th scope="col">TIGER STOP PART</th>
+                                 <th scope="col">TIGER STOP CODE DIGIT</th>
+                                 <th scope="col"># OF BINS</th>
+                                 <th scope="col">TIGER STOP CSV FILE NAME</th>
+                                 <th scope="col">WIDTH LABEL (0 OR 1)</th>
+                                 <th scope="col">HT LABEL (0 OR 1)</th>
+                                 <th scope="col">ITEM SIZE FOR BARCODE</th>
+
+                             </tr>
+                         </thead>
+                         <tbody>
+                         {%for item in list_window_item %}
+                             <tr>
+                                 <td>{{item.item_number}}</td>
+                                 <td>{{item.item_description}}</td>
+                                 <td>{{item.label_multiplier}}</td>
+                                 <td>{{item.item_type}}</td>
+                                 <td>{{item.group_number}}</td>
+                                 <td>{{item.inside_color}}</td>
+                                 <td>{{item.painted_price_outside}}</td>
+                                 <td>{{item.painted_price_inside}}</td>
+                                 <td>{{item.stain_price_outside}}</td>
+                                 <td>{{item.stain_price_inside}}</td>
+                                 <td>{{item.urban_output}}</td>
+                                 <td>{{item.urban_material}}</td>
+                                 <td>{{item.urban_model}}</td>
+                                 <td>{{item.urban_part}}</td>
+                                 <td>{{item.urban_code_digit}}</td>
+                                 <td>{{item.urban_of_bins}}</td>
+                                 <td>{{item.urban_csv_file_name}}</td>
+                                 <td>{{item.urban_width_label}}</td>
+                                 <td>{{item.urban_ht_label}}</td>
+                                 <td>{{item.urban_item_size_for_barcode}}</td>
+                                 <td>{{item.tiger_stop_output}}</td>
+                                 <td>{{item.tiger_stop_material}}</td>
+                                 <td>{{item.tiger_stop_model}}</td>
+                                 <td>{{item.tiger_stop_part}}</td>
+                                 <td>{{item.tiger_stop_code_digit}}</td>
+                                 <td>{{item.tiger_of_bins}}</td>
+                                 <td>{{item.tiger_stop_csv_file_name}}</td>
+                                 <td>{{item.tiger_width_label}}</td>
+                                 <td>{{item.tiger_ht_label}}</td>
+                                 <td>{{item.tiger_item_size_for_barcode}}</td>
+                             </tr>
+                          {%endfor%}  
+                         </tbody>
+                     </table>
+                 </div>
+             </div>
+         </div>
+       {%else%}
+       <h3 class="btn btn-danger">You don't have permission to see this page</h3>
+       {%endif%}
+     </div>
+ </div>
+
+{%endblock%}

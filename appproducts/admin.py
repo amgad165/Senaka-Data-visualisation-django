@@ -1,0 +1,22 @@
+from django.contrib import admin
+from appproducts.models import *
+# Register your models here.
+admin.site.register(mdl_door_option)
+admin.site.register(mdl_patio_door)
+admin.site.register(mdl_window_option)
+admin.site.register(mdl_spacer_type)
+admin.site.register(mdl_rosettes)
+admin.site.register(mdl_grill_type)
+admin.site.register(mdl_window_type)
+admin.site.register(mdl_glass_type)
+admin.site.register(mdl_deductions)
+admin.site.register(mdl_miscellaneous_1)
+admin.site.register(mdl_miscellaneous_2)
+admin.site.register(mdl_miscellaneous_3)
+admin.site.register(mdl_miscellaneous_4)
+admin.site.register(mdl_miscellaneous_5)
+admin.site.register(mdl_miscellaneous_6)
+admin.site.register(mdl_part_price)
+admin.site.register(mdl_color_price)
+admin.site.register(mdl_window_maxmin)
+admin.site.register(mdl_window_item)

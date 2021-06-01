@@ -1,0 +1,15 @@
+{%extends "base/main.html"%}
+{% block stylesheets %}
+{% endblock stylesheets %}
+
+{%block content%}
+{% load crispy_forms_tags %}
+
+<form method="post">{% csrf_token %}
+    {{ form|crispy }}
+    <input class="btn btn-primary" type="submit" value="Submit">
+</form>
+{%endblock%}
+{% block javascripts %}
+
+{% endblock javascripts %}

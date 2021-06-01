@@ -1,0 +1,103 @@
+{%extends "base/main.html"%}
+{% block title %}Window Option{% endblock %}
+{%block content%}
+ <div class="col-12 mt-5">
+     <div class="card">
+     {%if "Window Option" in user_groups %}
+         <div class="card-body">
+             <h4 class="header-title" >Window Option </h4>
+             <div class="single-table">
+                 <div class="table-responsive">
+                     <table class="table table-hover progress-table text-center">
+                         <thead class="text-uppercase">
+                             <tr>
+                                 <th scope="col">NO</th>
+                                 <th scope="col">Short Code</th>
+                                 <th scope="col">Type</th>
+                                 <th scope="col">Sm Casing</th>
+                                 <th scope="col">Lg Casing</th>
+                                 <th scope="col">Painted Inside</th>
+                                 <th scope="col">Painted Outside</th>
+                                 <th scope="col">Rosette</th>
+                                 <th scope="col">Xtra</th>
+                                 <th scope="col">Description</th>
+                                 <th scope="col">Mat Code</th>
+                                 <th scope="col">Pricing Width</th>
+                                 <th scope="col">Width Qty</th>
+                                 <th scope="col">Pricing Ht</th>
+                                 <th scope="col">Ht Qty</th>
+                                 <th scope="col">Stained</th>
+                                 <th scope="col">White Price</th>
+                                 <th scope="col">Colour Price</th>
+                                 <th scope="col">Stain Price</th>
+                                 <th scope="col">Lin/Fix/Sq</th>
+                                 <th scope="col">Cutting Width</th>
+                                 <th scope="col">Cutting Ht</th>
+                                 <th scope="col">BM Size Width</th>
+                                 <th scope="col">BM Size Ht</th>
+                                 <th scope="col">URBAN</th>
+                                 <th scope="col">URBAN Material</th>
+                                 <th scope="col">URBAN Model</th>
+                                 <th scope="col">URBAN Part</th>
+                                 <th scope="col">URBAN Code</th>
+                                 <th scope="col">2nd URBAN Folder</th>
+                                 <th scope="col">Bins</th>
+                                 <th scope="col">Outs Painted Price</th>
+                                 <th scope="col">Inside Painted Price</th>
+                                 <th scope="col">Out Stain Price</th>
+                                 <th scope="col">Inside Stain Price</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                         {%for item in list_window_option %}
+                             <tr>
+                                 <th scope="row">{{item.window_option_id}}</th>
+                                 <td>{{item.shot_code}}</td>
+                                 <td>{{item.type}}</td>
+                                 <td>{{item.sm_casing}}</td>
+                                 <td>{{item.lg_casing}}</td>
+                                 <td>{{item.painted_inside}}</td>
+                                 <td>{{item.painted_outside}}</td>
+                                 <td>{{item.rosette}}</td>
+                                 <td>{{item.xtra}}</td>
+                                 <td>{{item.description}}</td>
+                                 <td>{{item.mat_code}}</td>
+                                 <td>{{item.pricing_width}}</td>
+                                 <td>{{item.width_qty}}</td>
+                                 <td>{{item.pricing_ht}}</td>
+                                 <td>{{item.ht_qty}}</td>
+                                 <td>{{item.stained}}</td>
+                                 <td>{{item.white_price}}</td>
+                                 <td>{{item.colour_price}}</td>
+                                 <td>{{item.stain_price}}</td>
+                                 <td>{{item.l_f_s}}</td>
+                                 <td>{{item.cutting_width}}</td>
+                                 <td>{{item.cutting_ht}}</td>
+                                 <td>{{item.size_Width}}</td>
+                                 <td>{{item.size_ht}}</td>
+                                 <td>{{item.urban}}</td>
+                                 <td>{{item.urban_material}}</td>
+                                 <td>{{item.urban_model}}</td>
+                                 <td>{{item.urban_part}}</td>
+                                 <td>{{item.urban_code}}</td>
+                                 <td>{{item.urban_folder}}</td>
+                                 <td>{{item.bins}}</td>
+                                 <td>{{item.outs_painted_price}}</td>
+                                 <td>{{item.inside_painted_price}}</td>
+                                 <td>{{item.outs_stain_price}}</td>
+                                 <td>{{item.inside_stain_price}}</td>
+                                 
+                             </tr>
+                          {%endfor%}  
+                         </tbody>
+                     </table>
+                 </div>
+             </div>
+         </div>
+       {%else%}
+       <h3 class="btn btn-danger">You don't have permission to see this page</h3>
+       {%endif%}
+     </div>
+ </div>
+
+{%endblock%}

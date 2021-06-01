@@ -1,0 +1,52 @@
+{%extends "base/main.html"%}
+{% block title %}Window Deduction{% endblock %}
+{%block content%}
+ <div class="col-12 mt-5">
+     <div class="card">
+     {%if "Window Deduction" in user_groups %}
+         <div class="card-body">
+             <h4 class="header-title" >Window Deduction</h4>
+             <div class="single-table">
+                 <div class="table-responsive">
+                     <table class="table table-hover progress-table text-center">
+                         <thead class="text-uppercase">
+                             <tr>
+                             	 <th scope="col">Window Type</th>
+                                 <th scope="col">LN</th>
+                                 <th scope="col">IT</th>
+                                 <th style="text-align: left" scope="col">ITEM NAME</th>
+                                 <th scope="col">QTY</th>
+                                 <th scope="col">X0/Y0</th>
+                                 <th scope="col">X1/Y1</th>
+                                 <th scope="col">X2/Y2</th>
+                                 <th scope="col">X3/Y3</th>
+                                 <th scope="col">X4/Y4</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                         {%for item in list_deduction %}
+                             <tr>
+                                 <th>{{item.window_type.name}}</th>
+                                 <th scope="row">{{item.ln}}</th>
+                                 <th>{{item.it}}</th>
+                                 <td style="text-align: left">{{item.name}}</td>
+                                 <td>{{item.qty}}</td>
+                                 <td>{{item.xy0}}</td>
+                                 <td>{{item.xy1}}</td>
+                                 <td>{{item.xy2}}</td>
+                                 <td>{{item.xy3}}</td>
+                                 <td>{{item.xy4}}</td>
+                             </tr>
+                          {%endfor%}  
+                         </tbody>
+                     </table>
+                 </div>
+             </div>
+         </div>
+       {%else%}
+       <h3 class="btn btn-danger">You don't have permission to see this page</h3>
+       {%endif%}
+     </div>
+ </div>
+
+{%endblock%}

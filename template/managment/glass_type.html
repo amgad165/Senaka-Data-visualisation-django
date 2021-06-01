@@ -1,0 +1,81 @@
+{%extends "base/main.html"%}
+{% block title %}Glass Type{% endblock %}
+{%block content%}
+ <div class="col-12 mt-5">
+     <div class="card">
+     {%if "Glass Type" in user_groups %}
+         <div class="card-body">
+             <h4 class="header-title" >Glass Type</h4>
+             <div class="single-table">
+                 <div class="table-responsive">
+                     <table class="table table-hover progress-table text-center">
+                         <thead class="text-uppercase">
+                             <tr>
+                                 <th scope="col">NO</th>
+                                 <th scope="col">Short Code</th>
+                                 <th scope="col">D/T</th>
+                                 <th scope="col">3mm Price</th>
+                                 <th scope="col">4mm Price</th>
+                                 <th scope="col">5mm Price</th>
+                                 <th scope="col">6mm Price</th>
+                                 <th scope="col">7mm Price</th>
+                                 <th scope="col">8mm Price</th>
+                                 <th scope="col">9mm Price</th>
+                                 <th scope="col">10mm Price</th>
+                                 <th scope="col">11mm Price</th>
+                                 <th scope="col">12mm Price</th>
+                                 <th scope="col">MIL</th>
+                                 <th scope="col">OT</th>
+                                 <th scope="col">D</th>
+                                 <th scope="col">E</th>
+                                 <th scope="col">F</th>
+                                 <th scope="col">M</th>
+                                 <th scope="col">G</th>
+                                 <th scope="col">H [ Y/N ]</th>
+                                 <th scope="col">I</th>
+                                 <th scope="col">J [ Y/N ]</th>
+                                 <th scope="col">K [ Y/N ]</th>
+                              </tr>
+                         </thead>
+                         <tbody>
+                         {%for item in list_glass_type %}
+                             <tr>
+                                 <th scope="row">{{item.glass_type_id}}</th>
+                                 <td>{{item.description}}</td>
+                                 <td>{{item.D_T}}</td>
+                                 <td>{{item.Price_3mm}}</td>
+                                 <td>{{item.Price_4mm}}</td>
+                                 <td>{{item.Price_5mm}}</td>
+                                 <td>{{item.Price_6mm}}</td>
+                                 <td>{{item.Price_7mm}}</td>
+                                 <td>{{item.Price_8mm}}</td>
+                                 <td>{{item.Price_9mm}}</td>
+                                 <td>{{item.Price_10mm}}</td>
+                                 <td>{{item.Price_11mm}}</td>
+                                 <td>{{item.Price_12mm}}</td>
+                                 <td>{{item.mil}}</td>
+                                 <td>{{item.ot}}</td>
+                                 <td>{{item.D}}</td>
+                                 <td>{{item.E}}</td>
+                                 <td>{{item.F}}</td>
+                                 <td>{{item.M}}</td>
+                                 <td>{{item.G}}</td>
+                                 <td>{{item.H}}</td>
+                                 <td>{{item.I}}</td>
+                                 <td>{{item.J}}</td>
+                                 <td>{{item.K}}</td>
+                                                                  
+                             </tr>
+                          {%endfor%}  
+                         </tbody>
+                     </table>
+                 </div>
+             </div>
+         </div>
+         {%else%}
+       <h3 class="btn btn-danger">You don't have permission to see this page</h3>
+       {%endif%}
+     </div>
+ </div>
+
+{%endblock%}

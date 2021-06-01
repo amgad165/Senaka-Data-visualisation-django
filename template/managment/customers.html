@@ -1,0 +1,118 @@
+{%extends "base/main.html"%}
+{% block title %}Customers{% endblock %}
+{%block content%}
+ <div class="col-12 mt-5">
+     <div class="card">
+     {%if "Customers" in user_groups %}
+         <div class="card-body">
+             <h4 class="header-title" >Customers</h4>
+             <div class="single-table">
+                 <div class="table-responsive">
+                     <table class="table table-hover progress-table text-center">
+                         <thead class="text-uppercase">
+                             <tr>
+                                 <th scope="col">Customer Number</th>
+                                 <th scope="col">Customer Name</th>
+                                 <th scope="col">Address</th>
+                                 <th scope="col">City</th>
+                                 <th scope="col">Country</th>
+                                 <th scope="col">Prov/State</th>
+                                 <th scope="col">Postal_Zip</th>
+                                 <th scope="col">FST</th>
+                                 <th scope="col">PST</th>
+                                 <th scope="col">Phone</th>
+                                 <th scope="col">Fax</th>
+                                 <th scope="col">Ship Via</th>
+                                 <th scope="col">Sort Name</th>
+                                 <th scope="col">Contact</th>
+                                 <th scope="col">Terms Code</th>
+                                 <th scope="col">GST</th>
+                                 <th scope="col">USA Account</th>
+                                 <th scope="col">Discount</th>
+                                 <th scope="col">Oceanview Door Discount</th>
+                                 <th scope="col">Vista Door Discount</th>
+                                 <th scope="col">Credit Limit</th>
+                                 <th scope="col">Date Opened</th>
+                                 <th scope="col">MP Lock Price</th>
+                                 <th scope="col">Free MP Lock</th>
+                                 <th scope="col">FH Price</th>
+                                 <th scope="col">Remark 1</th>
+                                 <th scope="col">Remark 2</th>
+                                 <th scope="col">Remark 3</th>
+                                 <th scope="col">Remark 4</th>
+                                 <th scope="col">Remark 5</th>
+                                 <th scope="col">Mobile #1</th>
+                                 <th scope="col">Mobile #2</th>
+                                 <th scope="col">Emaile #1</th>
+                                 <th scope="col">Emaile #2</th>
+                                 <th scope="col">PST Rate</th>
+                                 <th scope="col">GST Rate</th>
+                                 <th scope="col">HST Rate</th>
+                                 <th scope="col">Total only on order Acknoledement</th>
+                                 <th scope="col">Total only on Qutes</th>
+                                 <th scope="col">Wite packing charge</th>
+                                 <th scope="col">Colour packing charge</th>
+                                 <th scope="col">Glass only packing charge</th>
+                                 <th scope="col">Outside colour #8 upcharge(%)</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                         {%for user in list_customer %}
+                             <tr>
+                                 <th scope="row">{{user.customer_id}}</th>
+                                 <td>{{user.name}}</td>
+                                 <td>{{user.address}}</td>
+                                 <td>{{user.city}}</td>
+                                 <td>{{user.country}}</td>
+                                 <td>{{user.prov_state}}</td>
+                                 <td>{{user.postal_zip}}</td>
+                                 <td>{{user.fst}}</td>
+                                 <td>{{user.pst}}</td>
+                                 <td>{{user.phone}}</td>
+                                 <td>{{user.fax}}</td>
+                                 <td>{{user.ship}}</td>
+                                 <td>{{user.sort}}</td>
+                                 <td>{{user.contact}}</td>
+                                 <td>{{user.terms}}</td>
+                                 <td>{{user.gst}}</td>
+                                 <td>{{user.usa}}</td>
+                                 <td>{{user.discount}}</td>
+                                 <td>{{user.Oceanview_discount}}</td>
+                                 <td>{{user.vista_discount}}</td>
+                                 <td>{{user.credit}}</td>
+                                 <td>{{user.date_opened}}</td>
+                                 <td>{{user.mp}}</td>
+                                 <td>{{user.free}}</td>
+                                 <td>{{user.fh}}</td>
+                                 <td>{{user.remark1}}</td>
+                                 <td>{{user.remark2}}</td>
+                                 <td>{{user.remark3}}</td>
+                                 <td>{{user.remark4}}</td>
+                                 <td>{{user.remark5}}</td>
+                                 <td>{{user.mobile1}}</td>
+                                 <td>{{user.mobile2}}</td>
+                                 <td>{{user.email1}}</td>
+                                 <td>{{user.email2}}</td>
+                                 <td>{{user.pst_rate}}</td>
+                                 <td>{{user.gst_rate}}</td>
+                                 <td>{{user.hst_rate}}</td>
+                                 <td>{{user.total_only_on_order}}</td>
+                                 <td>{{user.total_only_on_qutes}}</td>
+                                 <td>{{user.wite}}</td>
+                                 <td>{{user.color}}</td>
+                                 <td>{{user.glass}}</td>
+                                 <td>{{user.outside_color}}</td>
+                             </tr>
+                          {%endfor%}  
+                         </tbody>
+                     </table>
+                 </div>
+             </div>
+         </div>
+       {%else%}
+       <h3 class="btn btn-danger">You don't have permission to see this page</h3>
+       {%endif%}
+     </div>
+ </div>
+
+{%endblock%}

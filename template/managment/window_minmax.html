@@ -1,0 +1,70 @@
+{%extends "base/main.html"%}
+{% block title %}Max/Min{% endblock %}
+{%block content%}
+ <div class="col-12 mt-5">
+     <div class="card">
+     {%if "Window Type" in user_groups %}
+         <div class="card-body">
+             <h4 class="header-title" >Max/Min</h4>
+             <div class="single-table">
+                 <div class="table-responsive">
+                     <table class="table table-hover progress-table text-center">
+                         <thead class="text-uppercase">
+                             <tr>
+                                 <th scope="col">Window Type</th>
+                                 <th scope="col">Maximum Width Double</th>
+                                 <th scope="col">Minimum Width Double</th>
+                                 <th scope="col">Maximum Width Triple</th>
+                                 <th scope="col">Minimum Width Triple</th>
+                                 <th scope="col">Maximum Width Quadruple</th>
+                                 <th scope="col">Minimum Width Quadruple</th>
+                                 <th scope="col">Maximum Height Double</th>
+                                 <th scope="col">Minimum Height Double</th>
+                                 <th scope="col">Maximum Height Triple</th>
+                                 <th scope="col">Minimum Height Triple</th>
+                                 <th scope="col">Maximum Height Quadruple</th>
+                                 <th scope="col">Minimum Height Quadruple</th>
+                                 <th scope="col">Maximum Sq Ft Double</th>
+                                 <th scope="col">Minimum Sq Ft Double</th>
+                                 <th scope="col">Maximum Sq Ft Triple</th>
+                                 <th scope="col">Minimum Sq Ft Triple</th>
+                                 <th scope="col">Maximum Sq Ft Quadruple</th>
+                                 <th scope="col">Minimum Sq Ft Quadruple</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                         {%for item in list_window_minmax %}
+                             <tr>
+                                 <td>{{item.name}}</td>
+                                 <td>{{item.maximum_width_double}}</td>
+                                 <td>{{item.minimum_width_double}}</td>
+                                 <td>{{item.maximum_width_triple}}</td>
+                                 <td>{{item.minimum_width_triple}}</td>
+                                 <td>{{item.maximum_width_quadruple}}</td>
+                                 <td>{{item.minimum_width_quadruple}}</td>
+                                 <td>{{item.maximum_height_double}}</td>
+                                 <td>{{item.minimum_height_double}}</td>
+                                 <td>{{item.maximun_height_triple}}</td>
+                                 <td>{{item.minimun_height_triple}}</td>
+                                 <td>{{item.maximun_height_quadruple}}</td>
+                                 <td>{{item.minimun_height_quadruple}}</td>
+                                 <td>{{item.maximum_sq_ft_double}}</td>
+                                 <td>{{item.minimum_sq_ft_double}}</td>
+                                 <td>{{item.maximum_sq_ft_triple}}</td>
+                                 <td>{{item.minimum_sq_ft_triple}}</td>
+                                 <td>{{item.maximum_sq_ft_quadruple}}</td>
+                                 <td>{{item.minimum_sq_ft_quadruple}}</td>
+                             </tr>
+                          {%endfor%}  
+                         </tbody>
+                     </table>
+                 </div>
+             </div>
+         </div>
+       {%else%}
+       <h3 class="btn btn-danger">You don't have permission to see this page</h3>
+       {%endif%}
+     </div>
+ </div>
+
+{%endblock%}

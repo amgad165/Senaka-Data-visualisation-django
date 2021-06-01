@@ -1,0 +1,449 @@
+{% if user.mdl_customer %}
+<div class="sidebar">
+  <div class="sidebar-inner">
+    <!-- ### $Sidebar Header ### -->
+    <div class="sidebar-logo">
+      <div class="peers ai-c fxw-nw">
+        <div class="peer peer-greed">
+          <a class="sidebar-link td-n" href="/">
+            <div class="peers ai-c fxw-nw">
+              <div class="peer" style="text-align: center;margin:0 auto">
+                <div class="logo">
+                  <img src="/static/assets/static/images/logo.jpg" alt="">
+                </div>
+              </div>
+
+            </div>
+          </a>
+        </div>
+        <div class="peer">
+          <div class="mobile-toggle sidebar-toggle">
+            <a href="" class="td-n">
+              <i class="ti-arrow-circle-left"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ### $Sidebar Menu ### -->
+    <ul class="sidebar-menu scrollable pos-r">
+      <li class="nav-item mT-30 actived">
+        <a class="sidebar-link" href="/">
+          <span class="icon-holder">
+            <i class="c-blue-500 ti-home"></i>
+          </span>
+          <span class="title">Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="sidebar-link" href="/orderentry.html">
+          <span class="icon-holder">
+            <i class="c-brown-500 ti-files"></i>
+          </span>
+          <span class="title">Order Entry</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="sidebar-link" href="{% url 'express_coating'%}">
+          <span class="icon-holder">
+            <i class="c-brown-500 ti-layout-list-thumb"></i>
+          </span>
+          <span class="title">Express Coating</span>
+        </a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="sidebar-link" href="{% url 'logout' %}" >
+          <span class="icon-holder">
+              <i class="ti-power-off mR-10"></i>
+            </span>
+          <span class="title">Logout</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+{% else %}
+
+
+      <!-- #Left Sidebar ==================== -->
+      <div class="sidebar">
+        <div class="sidebar-inner">
+          <!-- ### $Sidebar Header ### -->
+          <div class="sidebar-logo">
+            <div class="peers ai-c fxw-nw">
+              <div class="peer peer-greed">
+                <a class="sidebar-link td-n" href="/">
+                  <div class="peers ai-c fxw-nw">
+                    <div class="peer" style="text-align: center;margin:0 auto">
+                      <div class="logo">
+                        <img src="/static/assets/static/images/logo.jpg" alt="">
+                      </div>
+                    </div>
+
+                  </div>
+                </a>
+              </div>
+              <div class="peer">
+                <div class="mobile-toggle sidebar-toggle">
+                  <a href="" class="td-n">
+                    <i class="ti-arrow-circle-left"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ### $Sidebar Menu ### -->
+          <ul class="sidebar-menu scrollable pos-r">
+            <li class="nav-item mT-30 actived">
+              <a class="sidebar-link" href="/">
+                <span class="icon-holder">
+                  <i class="c-blue-500 ti-home"></i>
+                </span>
+                <span class="title">Dashboard</span>
+              </a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="dropdown-toggle" href="javascript:void(0);">
+                <span class="icon-holder">
+                  <i class="c-brown-500 ti-palette"></i>
+                </span>
+                <span class="title">Color tracking</span>
+                <span class="arrow">
+                  <i class="ti-angle-right"></i>
+                </span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+            <a class="sidebar-link" href="{% url 'color_tracking'%}">Color Tracking</a>
+                </li>
+                <li>
+            <a class="sidebar-link" href="{% url 'express_coating'%}">Express Coating</a>
+                </li>
+                {% if setting_object %}
+                <li>
+                  <a class="sidebar-link" href="{% url 'update_settings' pk=setting_object.pk %}">Settings</a>
+                </li>
+                {% else %}
+                <li>
+                  <a class="sidebar-link" href="{% url 'settings'%}">Settings</a>
+                </li>
+                {% endif %}
+                <li>
+                <a class="sidebar-link" href="{% url 'new_orders'%}">New Orders</a>
+                </li>
+                <li>
+                <a class="sidebar-link" href="{% url 'company_color'%}">Companies Color Tracking</a>
+                </li>
+                <li>
+              <a class="sidebar-link" href="{% url 'select_exceptions'%}">Exceptions</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="sidebar-link" href="/email.html">
+                <span class="icon-holder">
+                  <i class="c-brown-500 ti-email"></i>
+                </span>
+                <span class="title">Email</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="sidebar-link" href="/compose.html">
+                <span class="icon-holder">
+                  <i class="c-blue-500 ti-share"></i>
+                </span>
+                <span class="title">Compose</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="sidebar-link" href="/calendar.html">
+                <span class="icon-holder">
+                  <i class="c-deep-orange-500 ti-calendar"></i>
+                </span>
+                <span class="title">Calendar</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="sidebar-link" href="/chat.html">
+                <span class="icon-holder">
+                  <i class="c-deep-purple-500 ti-comment-alt"></i>
+                </span>
+                <span class="title">Chat</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="sidebar-link" href="/charts.html">
+                <span class="icon-holder">
+                  <i class="c-indigo-500 ti-bar-chart"></i>
+                </span>
+                <span class="title">Charts</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="sidebar-link" href="/forms.html">
+                <span class="icon-holder">
+                  <i class="c-light-blue-500 ti-pencil"></i>
+                </span>
+                <span class="title">Forms</span>
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="sidebar-link" href="/ui.html">
+                <span class="icon-holder">
+                    <i class="c-pink-500 ti-palette"></i>
+                  </span>
+                <span class="title">UI Elements</span>
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="dropdown-toggle" href="javascript:void(0);">
+                <span class="icon-holder">
+                  <i class="c-orange-500 ti-layout-list-thumb"></i>
+                </span>
+                <span class="title">Tables</span>
+                <span class="arrow">
+                  <i class="ti-angle-right"></i>
+                </span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="sidebar-link" href="/basic-table.html">Basic Table</a>
+                </li>
+                <li>
+                  <a class="sidebar-link" href="/datatable.html">Data Table</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="dropdown-toggle" href="javascript:void(0);">
+                <span class="icon-holder">
+                    <i class="c-purple-500 ti-map"></i>
+                  </span>
+                <span class="title">Maps</span>
+                <span class="arrow">
+                    <i class="ti-angle-right"></i>
+                  </span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="/google-maps.html">Google Map</a>
+                </li>
+                <li>
+                  <a href="/vector-maps.html">Vector Map</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="dropdown-toggle" href="javascript:void(0);">
+                <span class="icon-holder">
+                    <i class="c-red-500 ti-files"></i>
+                  </span>
+                <span class="title">Pages</span>
+                <span class="arrow">
+                    <i class="ti-angle-right"></i>
+                  </span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="sidebar-link" href="/page-blank.html">Blank</a>
+                </li>
+                <li>
+                  <a class="sidebar-link" href="/page-404.html">404</a>
+                </li>
+                <li>
+                  <a class="sidebar-link" href="/page-500.html">500</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="dropdown-toggle" href="javascript:void(0);">
+                <span class="icon-holder">
+                  <i class="c-teal-500 ti-view-list-alt"></i>
+                </span>
+                <span class="title">Multiple Levels</span>
+                <span class="arrow">
+                  <i class="ti-angle-right"></i>
+                </span>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="nav-item dropdown">
+                  <a href="javascript:void(0);">
+                    <span>Menu Item</span>
+                  </a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="javascript:void(0);">
+                    <span>Menu Item</span>
+                    <span class="arrow">
+                      <i class="ti-angle-right"></i>
+                    </span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a href="javascript:void(0);">Menu Item</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">Menu Item</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="dropdown-toggle" href="javascript:void(0);">
+                <span class="icon-holder">
+                  <i class="c-orange-500 ti-layout-list-thumb"></i>
+                </span>
+                <span class="title">Option Tables</span>
+                <span class="arrow">
+                  <i class="ti-angle-right"></i>
+                </span>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="nav-item dropdown">
+                  <a href="javascript:void(0);">
+                    <span>Windows</span>
+                    <span class="arrow">
+                      <i class="ti-angle-right"></i>
+                    </span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a class="sidebar-link" href="/list_window_type/">Window Type</a>
+                    </li>
+                    <li>
+                      <a class="sidebar-link" href="/list_window_option/">Window Option</a>
+                    </li>
+                    <li>
+                      <a class="sidebar-link" href="/list_rosettes/">Rosettes</a>
+                    </li>
+                    <li>
+                      <a class="sidebar-link" href="/list_deduction/">Window Deduction</a>
+                    </li>
+                    <li>
+                      <a class="sidebar-link" href="/list_window_minmax/">Window Max/Min</a>
+                    </li>
+                    <li>
+                      <a class="sidebar-link" href="/list_window_item/">Window Item</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                  <a href="javascript:void(0);">
+                    <span>Glass</span>
+                    <span class="arrow">
+                      <i class="ti-angle-right"></i>
+                    </span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a class="sidebar-link" href="/list_glass_type/">Glass Type</a>
+                    </li>
+                    <li>
+                      <a class="sidebar-link" href="/list_grill_type/">Grill Type</a>
+                    </li>
+                    <li>
+                      <a class="sidebar-link" href="/list_spacer_type/">Spacer Type</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="javascript:void(0);">
+                    <span>Patio Door</span>
+                    <span class="arrow">
+                      <i class="ti-angle-right"></i>
+                    </span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a class="sidebar-link" href="/list_doors/">Door Type</a>
+                    </li>
+                    <li>
+                      <a class="sidebar-link" href="/list_doors_option/">Door Option</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="javascript:void(0);">
+                    <span>Miscellaneous</span>
+                    <span class="arrow">
+                      <i class="ti-angle-right"></i>
+                    </span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a class="sidebar-link" href="/list_miscellaneous_1/">Miscellaneous-1</a>
+                    </li>
+                    <li>
+                      <a class="sidebar-link" href="/list_miscellaneous_2/">Miscellaneous-2</a>
+                    </li>
+                    <li>
+                      <a class="sidebar-link" href="/list_miscellaneous_3/">Miscellaneous-3</a>
+                    </li>
+                    <li>
+                      <a class="sidebar-link" href="/list_miscellaneous_4/">Miscellaneous-4</a>
+                    </li>
+                    <li>
+                      <a class="sidebar-link" href="/list_miscellaneous_5/">Miscellaneous-5</a>
+                    </li>
+                    <li>
+                      <a class="sidebar-link" href="/list_miscellaneous_6/">Miscellaneous-6</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="javascript:void(0);">
+                    <span>Price</span>
+                    <span class="arrow">
+                      <i class="ti-angle-right"></i>
+                    </span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a class="sidebar-link" href="/list_color_price/">Color Price</a>
+                    </li>
+                    <li>
+                      <a class="sidebar-link" href="/list_part_price/">Part Price</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="dropdown-toggle" href="javascript:void(0);">
+                <span class="icon-holder">
+                  <i class="c-orange-500 ti-user"></i>
+                </span>
+                <span class="title">Accounts</span>
+                <span class="arrow">
+                  <i class="ti-angle-right"></i>
+                </span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="sidebar-link" href="/list_users/">Users</a>
+                </li>
+                <li>
+                  <a class="sidebar-link" href="/list_customer/">Customers</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="sidebar-link" href="{% url 'logout' %}" >
+                <span class="icon-holder">
+                    <i class="ti-power-off mR-10"></i>
+                  </span>
+                <span class="title">Logout</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+{% endif %}
